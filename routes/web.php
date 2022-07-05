@@ -14,11 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('guest.welcome');
+})->name('home');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')
+        ->name('admin.')
+        ->prefix('admin')
+        ->namespace('Admin')
+        ->group(function(){
+            // in questa sezione, inserire le rotte protette come le CRUD
+            Route::get('/', 'HomeController@index')->name('index');
+        });
+
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
