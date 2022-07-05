@@ -27,6 +27,8 @@ Route::middleware('auth')
         ->group(function(){
             // in questa sezione, inserire le rotte protette come le CRUD
             Route::get('/', 'HomeController@index')->name('index');
+
+            Route::resource('posts', 'PostsController');
         });
 
 
