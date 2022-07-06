@@ -22,13 +22,19 @@
                         <td>
                             <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">MOSTRA</a>
                             <a class="btn btn-warning" href="{{route('admin.posts.edit', $post)}}">MODIFICA</a>
-                            <a class="btn btn-danger" href="#">CANCELLA</a>
+                            <form class="d-inline"
+                                action="{{route('admin.posts.destroy', $post)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">CANCELLA</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
 
             </tbody>
+        </table>
+        <div class="paginate d-flex justify-content-center">{{$posts->links()}}</div>
 
-          </table>
     </div>
 @endsection
