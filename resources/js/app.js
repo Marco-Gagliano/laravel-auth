@@ -30,3 +30,28 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+// $().ready(function(){
+//     // qui si mette tutto il codice jquery o javascript (dopo il caricamento del DOM)
+
+
+//     $('form').submit(function(event){
+//         $('#error-title').hide();
+//         if($('#title').val().length === 0){
+//             $('#error-title').show('fast').text('il campo "Titolo" è obbligatorio').fadeOut(4000)
+//         }
+
+//         event.preventDefault
+
+//     } );
+
+//     $('form').submit(function(event){
+//         $('#error-description').hide();
+//         if($('#description').val().length === 0){
+//             $('#error-description').show('fast').text('il campo "Descrizione" è obbligatorio').fadeOut(4000)
+//         }
+
+//         event.preventDefault
+
+//     } )
+// });

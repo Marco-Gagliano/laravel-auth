@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Crea un nuovo post</h1>
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div class="col-6 offeset-3 alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -12,7 +12,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
         <form action="{{route('admin.posts.store')}}" method=POST>
             @csrf
@@ -27,22 +27,24 @@
                         class="form-control @error('title') is-invalid @enderror"
                         placeholder="Inserisci il titolo del post">
                         @error('title')
-                            <p class="text-danger fw-bold">{{$message}}</p>
+                            <p class="text-danger fw-bold"><strong>{{$message}}</strong></p>
                         @enderror
+                        <p class="text-danger fw-bold" id=error-title></p>
             </div>
 
             <div class="mb-3">
                 <label  for="description" class="form-label fw-bold">Contenuto del post</label>
-                <textarea   value="{{old("title")}}"
+                <textarea   value="{{old("description")}}"
                             name="description"
                             id="description"
                             type="text"
-                            class="form-control @error('description') is-invalid @enderror" id="content"
+                            class="form-control @error('description') is-invalid @enderror"
                             cols="30"   rows="10"
-                            placeholder="Inserisci la descrizione del post"></textarea>
+                            placeholder="Inserisci la descrizione del post">{{old("description")}}</textarea>
                 @error('description')
-                    <p class="text-danger fw-bold">{{$message}}</p>
+                    <p class="text-danger fw-bold"><strong>{{$message}}</strong></p>
                 @enderror
+                <p class="text-danger fw-bold" id=error-description></p>
             </div>
 
             <button type="submit" class="btn btn-success fw-bold">Invia</button>

@@ -31,23 +31,25 @@
                         class="form-control @error('title') is-invalid @enderror"
                         placeholder="Inserisci il titolo del comic">
                         @error('title')
-                            <p class="error-msg fw-bold">{{$message}}</p>
+                            <p class="text-danger fw-bold"><strong>{{$message}}</strong></p>
                         @enderror
+                        <p class="text-danger fw-bold" id=error-title></p>
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label fw-bold">Tipo</label>
-                        <input value="{{old("description", $post->description)}}"
-                        type="text"
-                        id="description"
-                        name="description"
-                        class="form-control @error('description') is-invalid @enderror"
-                        placeholder="Inserisci la tipologia del comic (es. graphic novel)">
+                        <label  for="description" class="form-label fw-bold">Contenuto del post</label>
+                        <textarea   value="{{old("description")}}"
+                                    name="description"
+                                    id="description"
+                                    type="text"
+                                    class="form-control @error('description') is-invalid @enderror"
+                                    cols="30"   rows="10"
+                                    placeholder="Inserisci la descrizione del post">{{old("description", $post->description)}}</textarea>
                         @error('description')
-                            <p class="error-msg fw-bold">{{$message}}</p>
+                            <p class="text-danger fw-bold"><strong>{{$message}}</strong></p>
                         @enderror
+                        <p class="text-danger fw-bold" id=error-description></p>
                     </div>
-
                     <button type="submit" class="btn btn-success fw-bold">Modifica</button>
 
                 </form>
