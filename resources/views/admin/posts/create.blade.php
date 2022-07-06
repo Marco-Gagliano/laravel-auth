@@ -4,6 +4,16 @@
     <div class="container">
         <h1>Crea un nuovo post</h1>
 
+        @if ($errors->any())
+            <div class="col-6 offeset-3 alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{route('admin.posts.store')}}}" method=POST>
             @csrf
 

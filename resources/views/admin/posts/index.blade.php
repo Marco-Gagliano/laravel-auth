@@ -20,7 +20,7 @@
                         <th scope="row">{{$post->id}}</th>
                         <td>{{$post->title}}</td>
                         <td>
-                            <a class="btn btn-primary" href="#">Mostra</a>
+                            <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">Mostra</a>
                             <a class="btn btn-warning" href="#">Modifica</a>
                             <a class="btn btn-danger" href="#">Cancella</a>
                         </td>

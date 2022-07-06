@@ -42,7 +42,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $new_post = new Post();
+
+        $new_post->fill($data);
+        $data['slug'] = Post::generateSlug(($data['title']));
+        $new_post->save();
+
+        return redirect()->route('admin.posts.show', $new_post);
     }
 
 
@@ -56,7 +63,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('admin.posts.show', compact ('posts'));
+        return view('admin.posts.show', compact ('post'));
     }
 
 

@@ -7,6 +7,13 @@ use Illuminate\Support\Str;
 
 class Post extends Model
 {
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'content'
+    ];
+
     public static function generateSlug($title){
 
         $slug = Str::slug($title, '-');
@@ -22,7 +29,6 @@ class Post extends Model
             $counter++;
             $actual_post = Post::where('slug', $slug)->first();
         }
-
 
         return $slug;
     }
