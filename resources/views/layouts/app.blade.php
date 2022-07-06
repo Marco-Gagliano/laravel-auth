@@ -32,8 +32,8 @@
                         Visualizza i dati
                     </a>
 
-                    <a class="navbar-brand" href="{{ route('admin.posts.create')}}">
-                        Crea un nuovo Post
+                    <a class="navbar-brand text-primary" href="{{ route('admin.posts.create')}}">
+                        <strong> Crea un nuovo Post</strong>
                     </a>
                 @endauth
 

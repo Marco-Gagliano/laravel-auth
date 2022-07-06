@@ -20,9 +20,9 @@
                         <th scope="row">{{$post->id}}</th>
                         <td>{{$post->title}}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">Mostra</a>
-                            <a class="btn btn-warning" href="#">Modifica</a>
-                            <a class="btn btn-danger" href="#">Cancella</a>
+                            <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">MOSTRA</a>
+                            <a class="btn btn-warning" href="{{route('admin.posts.edit', $post)}}">MODIFICA</a>
+                            <a class="btn btn-danger" href="#">CANCELLA</a>
                         </td>
                     </tr>
                 @endforeach
