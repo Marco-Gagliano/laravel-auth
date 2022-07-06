@@ -8,6 +8,7 @@ use App\Post;
 
 class PostsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +20,8 @@ class PostsController extends Controller
         return view ('admin.posts.index', compact('posts'));
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,8 +29,10 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,6 +45,8 @@ class PostsController extends Controller
         //
     }
 
+
+
     /**
      * Display the specified resource.
      *
@@ -48,8 +55,11 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('admin.posts.show', compact ('posts'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -61,6 +71,8 @@ class PostsController extends Controller
     {
         //
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -74,6 +86,8 @@ class PostsController extends Controller
         //
     }
 
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -84,4 +98,5 @@ class PostsController extends Controller
     {
         //
     }
+
 }
